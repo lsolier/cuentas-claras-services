@@ -9,15 +9,15 @@ Repositorio del proyecto legado a modernizar.
 
 ### Configurar Python e instalar dependencias
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip3 install --upgrade pip
-pip3 install -r src/requirements.txt
+pip3 install -r requirements.txt
 ```
 ### Ejecución de aplicación
 
 Ejecución desde consola: 
 ```bash
-python __main__.py
+export FLASK_APP=src/app.py FLASK_ENV=development TESTING=False FLASK_DEBUG=1 FLASK_APP_NAME=cuentas_claras_services
+gunicorn --bind 0.0.0.0:9005 manage:app --log-level debug --reload
 ```
-Ejecución desde archivo: `__main__.py`

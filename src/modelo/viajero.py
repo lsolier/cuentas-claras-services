@@ -1,42 +1,40 @@
 
 from sqlalchemy import Column, Boolean, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
 
-from .declarative_base import Base
+from src.modelo.declarative_base import db
 
-
-class Viajero(Base):
+class Viajero(db.Model):
     __tablename__= 'viajero'
 
-    id = Column(Integer, primary_key= True)
-    nombre= Column(String(250))
-    apellido= Column(String(250))
-    identificadorViajero = Column(String(250))
-    actividades = relationship('Actividad', secondary='actividades_viajero')
-    gastos = relationship('Gasto', secondary='gasto_viajero')
+    id = db.Column(Integer, primary_key= True)
+    nombre= db.Column(String(250))
+    apellido= db.Column(String(250))
+    identificadorViajero = db.Column(String(250))
+    actividades = db.relationship('Actividad', secondary='actividades_viajero')
+    gastos = db.relationship('Gasto', secondary='gasto_viajero')
 
-class ActividadViajero(Base):
+class ActividadViajero(db.Model):
     __tablename__ = 'actividades_viajero'
 
-    viajero_id = Column(
+    viajero_id = db.Column(
         String,
         ForeignKey('viajero.id'),
         primary_key=True)
 
-    actividad_id = Column(
+    actividad_id = db.Column(
         String,
         ForeignKey('actividad.nombreActividad'),
         primary_key=True)
 
-class GastoViajero(Base):
+class GastoViajero(db.Model):
     __tablename__ = 'gasto_viajero'
 
-    viajero_id = Column(
+    viajero_id = db.Column(
         String,
         ForeignKey('viajero.id'),
         primary_key=True)
 
-    gasto_id = Column(
+    gasto_id = db.Column(
         String,
         ForeignKey('gasto.id'),
         primary_key=True)
