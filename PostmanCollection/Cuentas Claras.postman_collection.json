@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "8f897fd8-94a7-4afe-80aa-c8cf27f828c8",
+		"name": "Cuentas Claras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3361414",
+		"_collection_link": "https://camutech.postman.co/workspace/LEARNING~127f0c52-9a74-4ae3-8d3d-c69ca8d22be6/collection/3361414-8f897fd8-94a7-4afe-80aa-c8cf27f828c8?action=share&source=collection_link&creator=3361414"
+	},
+	"item": [
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9005/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9005",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health check 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9005/cuentas-claras/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9005",
+					"path": [
+						"cuentas-claras",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar actividad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Actividad 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9005/cuentas-claras/actividades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9005",
+					"path": [
+						"cuentas-claras",
+						"actividades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Actividades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9005/cuentas-claras/actividades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9005",
+					"path": [
+						"cuentas-claras",
+						"actividades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listas Viajeros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9005/cuentas-claras/viajeros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9005",
+					"path": [
+						"cuentas-claras",
+						"viajeros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Viajero",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Viajero 1\",\n    \"apellido\": \"Viajero apellido\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9005/cuentas-claras/viajeros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9005",
+					"path": [
+						"cuentas-claras",
+						"viajeros"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
