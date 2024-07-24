@@ -8,6 +8,8 @@ from src.logica.controlador_actividad import ControladorActividad
 class Logica_mock():
 
     def __init__(self):
+        self.actividades = []
+
         self.controlador_reporte = ControladorReporte()
         self.controlador_actividad = ControladorActividad()
         self.adaptador_actividad= AdaptadorActividad()

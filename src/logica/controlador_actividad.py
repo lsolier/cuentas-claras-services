@@ -1,18 +1,13 @@
-
 from src.modelo.actividad import Actividad
 from src.utils.error_handler import ErrorHandling
 from src.utils.app_code_errors import AppCodeErrors
-from src.modelo.gasto import Gasto,ActividadGasto
-from src.modelo.viajero import Viajero,ActividadViajero
 from src.modelo.declarative_base import db
-
 
 class ControladorActividad:
 
     def __init__(self):
         super().__init__()
         self._actividades = []
-        #Base.metadata.create_all(engine)
 
 
     def get_all_actividades(self):

@@ -36,9 +36,6 @@ def create_app(config_name):
     else:
         app.config.from_object(config['default'])
 
-    # init db
-    db.init_app(app)
-
     print(f'Using {config_name} config')
 
     return app
