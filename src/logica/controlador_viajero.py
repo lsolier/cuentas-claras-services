@@ -11,7 +11,7 @@ class ControladorViajero:
         identificadorViajero = nombre+apellido
         viajero = db.session.query(Viajero).filter(Viajero.identificadorViajero == identificadorViajero).first()
         if viajero is None:
-            viajero = Viajero(fisrtname=nombre,
+            viajero = Viajero(firstname=nombre,
                               lastname=apellido,
                               identificadorViajero=identificadorViajero)
             db.session.add(viajero)

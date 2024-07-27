@@ -4,7 +4,7 @@ class Viajero(db.Model):
     __tablename__ = 'viajero'
 
     id = db.Column(db.Integer, primary_key=True)
-    fisrtname = db.Column(db.String(250))
+    firstname = db.Column(db.String(250))
     lastname = db.Column(db.String(250))
     identificadorViajero = db.Column(db.String(250))
     actividades = db.relationship('Actividad', secondary='actividades_viajero', back_populates='viajeros')
