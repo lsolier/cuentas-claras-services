@@ -15,7 +15,7 @@ class ActividadGasto(db.Model):
     __tablename__ = 'actividades_gasto'
 
     gasto_id = db.Column(db.String, db.ForeignKey('gasto.id'), primary_key=True)
-    actividad_id = db.Column(db.String, db.ForeignKey('actividad.nombreActividad'), primary_key=True)
+    actividad_id = db.Column(db.String, db.ForeignKey('actividad.name'), primary_key=True)
 
 # class GastoSchema(SQLAlchemyAutoSchema):
 #     class Meta:

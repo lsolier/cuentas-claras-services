@@ -32,6 +32,7 @@ class AdaptadorActividad:
 
     def agregar_actividad(self, nombreActividad):
         try:
+            print("que pasa aca0? ==>>", nombreActividad)
             resp = self._controlador_actividad.add_actividad(nombreActividad)
             if resp == True:
                 return logicResponse(True, "")

@@ -37,7 +37,7 @@ ENV FLASK_APP_NAME="cuentas-claras-services"
 ENV PYTHONPATH="./"
 
 # Expose the port the app will run on
-EXPOSE 9005
+EXPOSE 8000
 
 # Run the command to start the app
-CMD [ "gunicorn", "-w", "2", "manage:app", "-b", "0.0.0.0:9005", "--log-level", "debug" ]
+CMD [ "gunicorn", "-w", "2", "manage:app", "-b", "0.0.0.0:8000", "--log-level", "debug" ]

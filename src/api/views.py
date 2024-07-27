@@ -22,7 +22,7 @@ class ActividadesView(Resource):
         return actividad_schema.dump(actividades, many=True), requests.codes.ok
 
     def post(self):
-        nombre = request.json['nombre']
+        nombre = request.json['name']
         try:
             adaptadorActividad.agregar_actividad(nombre)
         except Exception as err:
@@ -38,8 +38,8 @@ class ViajeroView(Resource):
         return viajero_schema.dump(viajeros, many=True), requests.codes.ok
 
     def post(self):
-        nombre = request.json['nombre']
-        apellido = request.json['apellido']
+        nombre = request.json['firstname']
+        apellido = request.json['lastname']
         try:
             adaptadorActividad.add_viajero(nombre, apellido)
         except Exception as err:

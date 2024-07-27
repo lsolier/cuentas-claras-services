@@ -28,17 +28,17 @@ with app.app_context():
     db.session.commit()
 
 # blueprints
-cuentas_claras = Blueprint("cuentas_claras_services", __name__, url_prefix="/cuentas-claras/")
+cuentas_claras = Blueprint("cuentas_claras_services", __name__, url_prefix="/api/v1/")
 api = Api(cuentas_claras)
 app.register_blueprint(cuentas_claras)
 
 # add resources
-api.add_resource(ActividadesView, '/actividades')
-api.add_resource(ViajeroView, '/viajeros')
+api.add_resource(ActividadesView, '/activity')
+api.add_resource(ViajeroView, '/traveler')
 api.add_resource(HealthCheckView, '/ping')
 
 # Cors
-cors = CORS(app=app, resources={r"/cuentas-claras/*": {"origins": "*"}})
+cors = CORS(app=app, resources={r"/api/v1/*": {"origins": "*"}})
 
 # check-health-component at root level
 @app.route('/ping', methods=['GET'])

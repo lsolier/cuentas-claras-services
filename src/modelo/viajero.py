@@ -4,8 +4,8 @@ class Viajero(db.Model):
     __tablename__ = 'viajero'
 
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(250))
-    apellido = db.Column(db.String(250))
+    fisrtname = db.Column(db.String(250))
+    lastname = db.Column(db.String(250))
     identificadorViajero = db.Column(db.String(250))
     actividades = db.relationship('Actividad', secondary='actividades_viajero', back_populates='viajeros')
     gastos = db.relationship('Gasto', secondary='gasto_viajero', back_populates='viajero')
@@ -15,7 +15,7 @@ class ActividadViajero(db.Model):
     __tablename__ = 'actividades_viajero'
 
     viajero_id = db.Column(db.String, db.ForeignKey('viajero.id'), primary_key=True)
-    actividad_id = db.Column(db.String, db.ForeignKey('actividad.nombreActividad'), primary_key=True)
+    actividad_id = db.Column(db.String, db.ForeignKey('actividad.name'), primary_key=True)
 
 
 class GastoViajero(db.Model):

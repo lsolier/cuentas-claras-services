@@ -21,16 +21,22 @@ class ControladorActividad:
 
     def get_actividad(self,nombreActividad):
         try:
-            actividad = db.session.query(Actividad).filter(Actividad.nombreActividad == nombreActividad).first()
+            print("que pasa aca88? ==>>", nombreActividad)
+            actividad = db.session.query(Actividad).filter(Actividad.name == nombreActividad).first()
+            print("que retorna? ==>>", actividad)
             return actividad
         except:
             return ErrorHandling(False, AppCodeErrors.actividad_no_existe)
 
     def add_actividad(self, nombreActividad):
+        print("que pasa acaz? ==>>", nombreActividad)
         try:
             actividad = self.get_actividad(nombreActividad)
+            print("que pasa aca99? ==>>", actividad)
             if actividad == None:
-                nuevaActividad = Actividad(nombreActividad=nombreActividad, estadoActividad=True)
+                print("que pasa aca? ==>>", actividad)
+                nuevaActividad = Actividad(name=nombreActividad, estadoActividad=True)
+                print("que pasa aca2? ==>>", nuevaActividad)
                 db.session.add(nuevaActividad)
                 db.session.commit()
                 return True

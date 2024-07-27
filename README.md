@@ -19,7 +19,7 @@ pip3 install -r requirements.txt
 Ejecución desde consola: 
 ```bash
 export FLASK_APP=src/app.py FLASK_ENV=development TESTING=False FLASK_DEBUG=1 FLASK_APP_NAME=cuentas_claras_services
-gunicorn --bind 0.0.0.0:9005 manage:app --log-level debug --reload
+gunicorn --bind 0.0.0.0:8000 manage:app --log-level debug --reload
 ```
 ## Ejecución en contenedor
 
@@ -27,5 +27,5 @@ gunicorn --bind 0.0.0.0:9005 manage:app --log-level debug --reload
 
 ```bash
 docker build -t cuentas-claras-services:1.0.0 .
-docker run -e PORT=9005 -p 9005:9005 --name cuentas-claras-services cuentas-claras-services:1.0.0
+docker run -e PORT=9005 -p 8000:8000 --name cuentas-claras-services cuentas-claras-services:1.0.0
 ```
