@@ -1,0 +1,28 @@
+# core-apicompany/.dockerignore
+
+# Excluir archivos y directorios específicos del contexto de construcción de Docker
+
+# Archivos temporales y cachés
+*.pyc
+__pycache__
+
+# Directorios y archivos de desarrollo local
+venv/
+node_modules/
+*.log
+.env
+.sqlite
+
+# Archivos y directorios generados por IDEs y editores
+.idea/
+.vscode/
+
+# Otros archivos y directorios que no deben ser incluidos
+.DS_Store
+*.swp
+
+# Devops files
+charts/
+pipeline/
+instance/
+postman-collection/
