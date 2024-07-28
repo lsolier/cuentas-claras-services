@@ -18,6 +18,7 @@ pip3 install -r requirements.txt
 
 Ejecución desde consola: 
 ```bash
+export DEV_DATABASE_URL=postgresql://postgres:postgres@localhost:5435/cuentas-claras
 export FLASK_APP=src/app.py FLASK_ENV=development TESTING=False FLASK_DEBUG=1 FLASK_APP_NAME=cuentas_claras_services
 gunicorn --bind 0.0.0.0:8000 manage:app --log-level debug --reload
 ```
@@ -27,5 +28,10 @@ gunicorn --bind 0.0.0.0:8000 manage:app --log-level debug --reload
 
 ```bash
 docker build -t cuentas-claras-services:1.0.0 .
-docker run -e PORT=9005 -p 8000:8000 --name cuentas-claras-services cuentas-claras-services:1.0.0
+docker run -e PORT=9005 -e DEV_DATABASE_URL=postgresql://postgres:postgres@localhost:5435/cuentas-claras -p 8000:8000 --name cuentas-claras-services cuentas-claras-services:1.0.0
+```
+
+## Ejecución de base datos en container
+```bash
+docker run --name cuentas-claras-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=cuentas-claras -p 5435:5432 -d postgres
 ```

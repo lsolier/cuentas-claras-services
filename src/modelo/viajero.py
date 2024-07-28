@@ -14,15 +14,15 @@ class Viajero(db.Model):
 class ActividadViajero(db.Model):
     __tablename__ = 'actividades_viajero'
 
-    viajero_id = db.Column(db.String, db.ForeignKey('viajero.id'), primary_key=True)
+    viajero_id = db.Column(db.Integer, db.ForeignKey('viajero.id'), primary_key=True)
     actividad_id = db.Column(db.String, db.ForeignKey('actividad.name'), primary_key=True)
 
 
 class GastoViajero(db.Model):
     __tablename__ = 'gasto_viajero'
 
-    viajero_id = db.Column(db.String, db.ForeignKey('viajero.id'), primary_key=True)
-    gasto_id = db.Column(db.String, db.ForeignKey('gasto.id'), primary_key=True)
+    viajero_id = db.Column(db.Integer, db.ForeignKey('viajero.id'), primary_key=True)
+    gasto_id = db.Column(db.Integer, db.ForeignKey('gasto.id'), primary_key=True)
 
 # class ActividadViajeroSchema(SQLAlchemyAutoSchema):
 #     class Meta:
