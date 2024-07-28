@@ -3,6 +3,11 @@ Repositorio del proyecto legado a modernizar.
 
 ## Ejecución local
 
+## Ejecución de base datos en container
+```bash
+docker run --name cuentas-claras-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=cuentas-claras -p 5435:5432 -d postgres
+```
+
 ### Requisitos
 
 - Pyhton 3.10
@@ -22,16 +27,12 @@ export DEV_DATABASE_URL=postgresql://postgres:postgres@localhost:5435/cuentas-cl
 export FLASK_APP=src/app.py FLASK_ENV=development TESTING=False FLASK_DEBUG=1 FLASK_APP_NAME=cuentas_claras_services
 gunicorn --bind 0.0.0.0:8000 manage:app --log-level debug --reload
 ```
+
 ## Ejecución en contenedor
 
 **Importante** no modificar la variable PORT para que coincida con la planificada en el despliegue
 
 ```bash
 docker build -t cuentas-claras-services:1.0.0 .
-docker run -e PORT=9005 -e DEV_DATABASE_URL=postgresql://postgres:postgres@localhost:5435/cuentas-claras -p 8000:8000 --name cuentas-claras-services cuentas-claras-services:1.0.0
-```
-
-## Ejecución de base datos en container
-```bash
-docker run --name cuentas-claras-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=cuentas-claras -p 5435:5432 -d postgres
+docker run --link cuentas-claras-db -e PORT=9005 -e DEV_DATABASE_URL=postgresql://postgres:postgres@cuentas-claras-db:5432/cuentas-claras -p 8000:8000 --name cuentas-claras-services cuentas-claras-services:1.0.0
 ```
